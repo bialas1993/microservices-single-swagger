@@ -1,12 +1,12 @@
 ---
 info:
-  component: Default Single Swagger Document Server for MicroService
+  component: Documentation
 
 spring:
   profiles: default
 
 server:
-  port: 8014
+  port: 8080
 
 documentation: 
   baseurl: http://localhost
@@ -14,12 +14,5 @@ documentation:
     services:   
       - 
         name: Service1
-        url: ${documentation.baseurl}:8040/v2/api-docs?group=service1
+        url: http://petstore.swagger.io/v2/swagger.json
         version: 2.0
-      - 
-        name: Service2
-        url: ${documentation.baseurl}:8050/v2/api-docs?group=service2
-        version: 2.0
-
- 
-    

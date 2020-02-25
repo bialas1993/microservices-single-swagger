@@ -7,18 +7,11 @@ import org.springframework.context.annotation.Primary;
 
 import java.util.List;
 
-/**
- * @author George Varghese
- * @version 1.0
- * https://github.com/varghgeorge
- */
-
 @Primary
 @Configuration
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix="documentation.swagger")
 public class SwaggerServicesConfig {
-
     List<SwaggerServices> swagger;
 
     public List<SwaggerServices> getServices() {
@@ -28,7 +21,6 @@ public class SwaggerServicesConfig {
     public void setServices(List<SwaggerServices> swaggerResources) {
         this.swagger = swaggerResources;
     }
-
 
     @EnableConfigurationProperties
     @ConfigurationProperties(prefix="documentation.swagger.services")
@@ -65,8 +57,5 @@ public class SwaggerServicesConfig {
         public String toString() {
             return "SwaggerServices [name=" + name + ", url=" + url + ", version=" + version + "]";
         }
-
-
     }
-
 }

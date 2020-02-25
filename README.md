@@ -53,3 +53,40 @@ Sample screenshot of the swagger APIs dropdown from the configuration.
 Thanks to @dilipkrish (SpringFox Member) & @jhipster.
 
 @dilipkrish mentioned that he is planning to add this to springfox swagger demos. So, you might be able to get this directly as part of swagger in future.
+
+### Docker repository
+
+https://hub.docker.com/repository/docker/bialas1993/manhattan-docs 
+
+### Build
+``` 
+mvn clean package
+docker build -t bialas1993/manhattan-docs .
+docker push bialas1993/manhattan-docs:latest
+```
+
+### Run
+
+http://localhost:8080/swagger-ui.html
+
+```
+docker run -v $(pwd)/config:/config -p 8080:8080  bialas1993/manhattan-docs:latest
+```
+
+config/application.yml
+
+``` 
+---
+  documentation: 
+    baseurl: http://localhost
+    swagger: 
+      services:   
+        - 
+          name: Service1
+          url: http://petstore.swagger.io/v2/swagger.json
+          version: 2.0
+        -
+          name: Service2
+          url: https://raw.githubusercontent.com/swagger-api/swagger-samples/master/java/inflector-dropwizard/src/main/swagger/swagger.yaml
+          version: 2.0 
+```

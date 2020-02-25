@@ -6,6 +6,10 @@
 # Compiled class file
 *.class
 
+.project
+.factorypath
+.classpath
+
 #directory
 /target/
 /.idea/
